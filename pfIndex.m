@@ -1,3 +1,9 @@
+%Che Chan
+%Shahani Group
+%University of Michigan
+%August 14, 2017
+%caesura@umich.edu
+
 format compact
 %Opens pole figure image
 prompt = 'Filename: ';
@@ -70,13 +76,3 @@ fprintf('hkl is:\n');
 hkl = double(M*Dprime);
 disp(rot90(hkl))
 fprintf('User may need to clear fractions\n');
-
-
-%Kabsch method
-% [aU, ar] = Kabsch(Aprime, axisA);
-% [bU, br] = Kabsch(Bprime, axisB);
-% [cU, cr] = Kabsch(Cprime, axisC);
-
-% XYZ = [Aprime, Bprime, Cprime];
-% Axes = [axisA, axisB/sqrt(3), axisC/sqrt(2)];
-% [Rot, Trans] = Kabsch(XYZ, Axes);
