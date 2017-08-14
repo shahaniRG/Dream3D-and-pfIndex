@@ -11,21 +11,21 @@ fname = input(prompt, 's');
 image = imread(fname);
 imshow(image)
 
-%if you want to reindex the same image triangle multiple times, this saves 
+%if you want to reindex the same image triangle multiple times, this saves
 %the previous axes coordinates
-fprintf('Same image and IPF?\n');
+fprintf('Continue using the previous image and IPF?\n');
 samevar = input('true/false?: ');
-if samevar == false
+if samevar != true 
 	clear all
 	%these variables should be pixel values from the image
 	fprintf('Enter coordinates of [001] axis\n');
 	ax = input('x: ');
 	ay = input('y: ');
-	
+
 	fprintf('Enter coordinates of [-111] axis\n');
 	bx = input('x: ');
 	by = input('y: ');
-	
+
 	fprintf('Enter coordinates of [011] axis\n');
 	cx = input('x: ');
 	cy = input('y: ');
@@ -46,9 +46,9 @@ Bprime = [2*bx/(bx^2 + by^2 + 1); 2*by/(bx^2 + by^2 + 1); (bx^2 + by^2 - 1)/(bx^
 Cprime = [2*cx/(cx^2 + cy^2 + 1); 2*cy/(cx^2 + cy^2 + 1); (cx^2 + cy^2 - 1)/(cx^2 + cy^2 + 1)];
 Dprime = [2*dx/(dx^2 + dy^2 + 1); 2*dy/(dx^2 + dy^2 + 1); (dx^2 + dy^2 - 1)/(dx^2 + dy^2 + 1)];
 
-% [m11 m12 m13] [X] = [axis]
-% [m21 m22 m23] [Y] = [axis]
-% [m31 m32 m33] [Z] = [axis]
+% [m11 m12 m13] [X] = [h]
+% [m21 m22 m23] [Y] = [k]
+% [m31 m32 m33] [Z] = [l]
 syms m11 m12 m13
 eqn1 = Aprime(1,1)*m11 + Aprime(2,1)*m12 + Aprime(3,1)*m13 == axisA(1,1);
 eqn2 = Bprime(1,1)*m11 + Bprime(2,1)*m12 + Bprime(3,1)*m13 == axisB(1,1);
