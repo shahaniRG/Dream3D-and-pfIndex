@@ -15,8 +15,7 @@ imshow(image)
 %the previous axes coordinates
 fprintf('Continue using the previous image and IPF?\n');
 samevar = input('true/false?: ');
-if samevar != true 
-	clear all
+if samevar ~= true 
 	%these variables should be pixel values from the image
 	fprintf('Enter coordinates of [001] axis\n');
 	ax = input('x: ');
